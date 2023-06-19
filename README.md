@@ -8,6 +8,15 @@
 go get -u github.com/mattiasbonte/gobuzzer
 ```
 
+### .env
+
+Populate the `.env` file based on the functionality you wish you use.
+
+```bash
+TELEGRAM_AUTH_TOKEN=YOURTELEGRAMAUTHTOKEN
+TELEGRAM_CHAT_ID=YOURTELEGRAMCHATID
+```
+
 ### Examples
 
 ```go
