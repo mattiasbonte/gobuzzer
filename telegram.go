@@ -1,4 +1,4 @@
-package buzzer
+package gobuzzer
 
 import (
 	"net/http"

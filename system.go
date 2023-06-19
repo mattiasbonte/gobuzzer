@@ -1,4 +1,4 @@
-package buzzer
+package gobuzzer
 
 import (
 	"fmt"
@@ -13,6 +13,9 @@ var (
 )
 
 // SystemBuzz notifies the user through triggering a beep/notification/alert on the operating system.
+// "beep" plays a subtle beep sound only.
+// "notify" displays a notification banner without any sound.
+// "alert" displays a notification banner with a notification sound.
 func SystemBuzz(message string, notificationType string) error {
 	switch notificationType {
 	case beep:
