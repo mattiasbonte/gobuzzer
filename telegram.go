@@ -17,6 +17,7 @@ func TelegramNotification(authToken string, chatID string, message string) error
 	values := url.Values{}
 	values.Add("chat_id", chatID)
 	values.Add("text", message)
+	values.Add("parse_mode", "MarkdownV2")
 
 	resp, err := http.Get(apiURL + "?" + values.Encode())
 	if err != nil {
