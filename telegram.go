@@ -4,6 +4,7 @@ import (
 	"net/http"
 	"net/url"
 	"strconv"
+	"strings"
 )
 
 type TelegramNotificationOptions struct {
@@ -38,4 +39,29 @@ func TelegramNotification(authToken string, chatId string, message string, opts 
 	defer resp.Body.Close()
 
 	return nil
+}
+
+func StringToMarkdownV2(text string) string {
+	var builder strings.Builder
+
+	for _, c := range text {
+		if isMarkdownV2SpecialCharacter(c) {
+			builder.WriteRune('\\')
+		}
+		builder.WriteRune(c)
+	}
+
+	return builder.String()
+}
+
+func isMarkdownV2SpecialCharacter(c rune) bool {
+	specialCharacters := []rune{'_', '*', '[', ']', '(', ')', '~', '`', '>', '#', '+', '-', '=', '|', '{', '}', '.', '!'}
+
+	for _, char := range specialCharacters {
+		if c == char {
+			return true
+		}
+	}
+
+	return false
 }
